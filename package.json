@@ -1,7 +1,7 @@
 {
-  "name": "react-typeahead",
+  "name": "react-typeahead-mouseover",
   "version": "1.0.5",
-  "description": "React-based typeahead and typeahead-tokenizer",
+  "description": "React-based typeahead and typeahead-tokenizer with mouseover",
   "keywords": [
     "react",
     "typeahead",
