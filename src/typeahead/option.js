@@ -67,8 +67,6 @@ var TypeaheadOption = React.createClass({
   },
 
   _onMouseEnter: function() {
-    console.log('MOUSE ENTERED');
-    console.log(this.props.index);
     return this.props.onMouseEnter(this.props.index);
   }
 });
