@@ -13,8 +13,10 @@ var TypeaheadOption = React.createClass({
     customClasses: React.PropTypes.object,
     customValue: React.PropTypes.string,
     onClick: React.PropTypes.func,
+    onMouseEnter: React.PropTypes.func,
     children: React.PropTypes.string,
-    hover: React.PropTypes.bool
+    hover: React.PropTypes.bool,
+    index: React.PropTypes.number
   },
 
   getDefaultProps: function() {
@@ -42,7 +44,7 @@ var TypeaheadOption = React.createClass({
     var classList = classNames(classes);
 
     return (
-      <li className={classList} onClick={this._onClick}>
+      <li className={classList} onClick={this._onClick} onMouseEnter={this._onMouseEnter}>
         <a href="javascript: void 0;" className={this._getClasses()} ref="anchor">
           { this.props.children }
         </a>
@@ -62,6 +64,10 @@ var TypeaheadOption = React.createClass({
   _onClick: function(event) {
     event.preventDefault();
     return this.props.onClick(event);
+  },
+
+  _onMouseEnter: function() {
+    return this.props.onMouseEnter(this.props.index);
   }
 });
 
