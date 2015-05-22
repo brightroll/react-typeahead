@@ -9,27 +9,10 @@
     "autocomplete",
     "react-component"
   ],
-  "homepage": "https://github.com/fmoo/react-typeahead",
-  "bugs": {
-    "url": "https://github.com/fmoo/react-typeahead/issues",
-    "email": "ruibalp@gmail.com"
-  },
-  "license": "ISC",
-  "author": {
-    "name": "Peter Ruibal",
-    "email": "ruibalp@gmail.com",
-    "url": "https://github.com/fmoo"
-  },
-  "contributors": [
-    {
-      "name": "Sam Breed",
-      "email": "sam@quickleft.com",
-      "url": "http://wookiehangover.com"
-    }
-  ],
+  "homepage": "https://github.com/jerchung/react-typeahead",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fmoo/react-typeahead.git"
+    "url": "https://github.com/jerchung/react-typeahead.git"
   },
   "dependencies": {
     "classnames": "^1.2.0",
