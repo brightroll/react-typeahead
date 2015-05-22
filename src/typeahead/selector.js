@@ -35,6 +35,20 @@ var TypeaheadSelector = React.createClass({
     };
   },
 
+  componentDidUpdate: function() {
+    if (this.state.selectionIndex !== null) {
+      var selectedDOM = this.refs[this.state.selection].getDOMNode();
+      var menuDOM = this.refs.menu.getDOMNode();
+      var focusedRect = focusedDOM.getBoundingClientRect();
+      var menuRect = menuDOM.getBoundingClientRect();
+
+      if (focusedRect.bottom > menuRect.bottom ||
+        focusedRect.top < menuRect.top) {
+        menuDOM.scrollTop = (focusedDOM.offsetTop + focusedDOM.clientHeight - menuDOM.offsetHeight);
+      }
+    }
+  }
+
   render: function() {
     var classes = {
       "typeahead-selector": true
@@ -70,7 +84,7 @@ var TypeaheadSelector = React.createClass({
     }, this);
 
 
-    return <ul className={classList}>{ results }</ul>;
+    return <ul ref='results' className={classList}>{ results }</ul>;
   },
 
   setSelectionIndex: function(index) {
