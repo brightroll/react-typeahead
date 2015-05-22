@@ -108,13 +108,11 @@ var TypeaheadSelector = React.createClass({
       return;
     }
     var newIndex = this.state.selectionIndex === null ? (delta == 1 ? 0 : delta) : this.state.selectionIndex + delta;
-    console.log('New Index ' + newIndex);
     var length = this.props.options.length;
     if (this.props.customValue !== null) {
       length += 1;
     }
 
-    console.log('length ' + length);
     if (newIndex < 0) {
       newIndex += length;
     } else if (newIndex >= length) {

@@ -150,8 +150,8 @@ var Typeahead = React.createClass({
     return this._onOptionSelected(this.refs.sel.state.selection, event);
   },
 
-  _onEscape: function() {
-    this.refs.sel.setSelectionIndex(null)
+  _onEscape: function(event) {
+    return this._onOptionSelected(this.state.selection, event);
   },
 
   _onTab: function(event) {
