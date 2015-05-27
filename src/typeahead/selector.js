@@ -17,7 +17,8 @@ var TypeaheadSelector = React.createClass({
     customValue: React.PropTypes.string,
     selectionIndex: React.PropTypes.number,
     intialValue: React.PropTypes.string,
-    onOptionSelected: React.PropTypes.func
+    onOptionSelected: React.PropTypes.func,
+    onListBlur: React.PropTypes.func
   },
 
   getDefaultProps: function() {
@@ -92,7 +93,7 @@ var TypeaheadSelector = React.createClass({
     }, this);
 
 
-    return <ul ref="results" className={classList}>{ results }</ul>;
+    return <ul ref="results" className={classList} onBlur={this.props.onListBlur}>{ results }</ul>;
   },
 
   setSelectionIndex: function(index) {

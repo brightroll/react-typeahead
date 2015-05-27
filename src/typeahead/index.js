@@ -121,7 +121,8 @@ var Typeahead = React.createClass({
           ref="sel" options={this.state.visible}
           customValue={this.state.entryValue}
           onOptionSelected={this._onOptionSelected}
-          customClasses={this.props.customClasses} />
+          customClasses={this.props.customClasses}
+          onListBlur={this._onListBlur} />
       );
     }
 
@@ -129,7 +130,8 @@ var Typeahead = React.createClass({
       <TypeaheadSelector
         ref="sel" options={ this.state.visible }
         onOptionSelected={ this._onOptionSelected }
-        customClasses={this.props.customClasses} />
+        customClasses={this.props.customClasses}
+        onListBlur={this._onListBlur} />
    );
   },
 
@@ -150,7 +152,7 @@ var Typeahead = React.createClass({
                    entryValue: value});
   },
 
-  _onBlur: function (event) {
+  _onListBlur: function (event) {
     return this._onOptionSelected(this.state.lastSelection, event);
   },
 
@@ -226,7 +228,7 @@ var Typeahead = React.createClass({
     var classList = classNames(classes);
 
     return (
-      <div className={classList} onBlur={this._onBlur}>
+      <div className={classList}>
         { this._renderHiddenInput() }
         <input ref="entry" type="text"
           {...this.props.inputProps}
