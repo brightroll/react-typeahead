@@ -135,7 +135,6 @@ var Typeahead = React.createClass({
 
   _onOptionSelected: function(option, event) {
     var nEntry = this.refs.entry.getDOMNode();
-    nEntry.blur();
     nEntry.value = option;
     this.setState({visible: this.getOptionsForValue(option, this.props.options),
                    selection: option,
