@@ -227,7 +227,7 @@ var Typeahead = React.createClass({
     var classList = classNames(classes);
 
     return (
-      <div className={classList}>
+      <div className={classList} onBlur={this._onBlur}>
         { this._renderHiddenInput() }
         <input ref="entry" type="text"
           {...this.props.inputProps}
@@ -235,7 +235,7 @@ var Typeahead = React.createClass({
           className={inputClassList}
           value={this.state.entryValue}
           defaultValue={this.props.defaultValue}
-          onChange={this._onTextEntryUpdated} onKeyDown={this._onKeyDown} onBlur={this._onBlur} />
+          onChange={this._onTextEntryUpdated} onKeyDown={this._onKeyDown} />
         { this._renderIncrementalSearchResults() }
       </div>
     );
