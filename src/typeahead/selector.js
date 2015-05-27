@@ -58,6 +58,10 @@ var TypeaheadSelector = React.createClass({
     }
   },
 
+  _onListBlur: function (e) {
+    e.preventDefault();
+  },
+
   render: function() {
     var classes = {
       "typeahead-selector": true
@@ -93,7 +97,7 @@ var TypeaheadSelector = React.createClass({
     }, this);
 
 
-    return <ul ref="results" className={classList} onBlur={this.props.onListBlur}>{ results }</ul>;
+    return <ul ref="results" className={classList} onBlur={this._onListBlur}>{ results }</ul>;
   },
 
   setSelectionIndex: function(index) {
