@@ -48,7 +48,7 @@ var Typeahead = React.createClass({
   getInitialState: function() {
     return {
       // The currently visible set of options
-      visible: this.getOptionsForValue(this.props.defaultValue, this.props.options),
+      visible: [],
 
       // This should be called something else, "entryValue"
       entryValue: this.props.defaultValue,
@@ -57,7 +57,7 @@ var Typeahead = React.createClass({
       selection: null,
 
       // Last valid selection
-      lastSelection: null
+      lastSelection: this.props.defaultValue
     };
   },
 
