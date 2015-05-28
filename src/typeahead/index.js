@@ -54,7 +54,7 @@ var Typeahead = React.createClass({
       entryValue: this.props.defaultValue,
 
       // A valid typeahead value
-      selection: null,
+      selection: this.props.defaultValue,
 
       // Last valid selection
       lastSelection: this.props.defaultValue
