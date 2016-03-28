@@ -303,5 +303,26 @@ describe('Typeahead Component', function() {
         });
       });
     });
+
+    context('showOptionsOnEmpty', function() {
+      it('should not show anything when showOptionsOnEmpty is disabled and the input is empty', function() {
+          var component = TestUtils.renderIntoDocument(<Typeahead
+            options={ BEATLES }
+          />);
+
+          var results = simulateTextInput(component, '');
+          assert.equal(results.length, 0);
+      });
+
+      it('should show all options when showOptionsOnEmpty is enabled and the input is empty', function() {
+          var component = TestUtils.renderIntoDocument(<Typeahead
+            options={ BEATLES }
+            showOptionsOnEmpty={true}
+          />);
+
+          var results = simulateTextInput(component, '');
+          assert.equal(results.length, 4);
+      });
+    });
   });
 });
