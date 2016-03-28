@@ -1,7 +1,7 @@
 var _ = require('lodash');
 var assert = require('chai').assert;
 var sinon = require('sinon');
-var React = require('react/addons');
+var React = require('react');
 var Typeahead = require('../src/typeahead');
 var TypeaheadOption = require('../src/typeahead/option');
 var TypeaheadSelector = require('../src/typeahead/selector');
@@ -301,6 +301,27 @@ describe('Typeahead Component', function() {
           var results = simulateTextInput(component, testplan.input);
           assert.equal(results.length, testplan.output);
         });
+      });
+    });
+
+    context('showOptionsOnEmpty', function() {
+      it('should not show anything when showOptionsOnEmpty is disabled and the input is empty', function() {
+          var component = TestUtils.renderIntoDocument(<Typeahead
+            options={ BEATLES }
+          />);
+
+          var results = simulateTextInput(component, '');
+          assert.equal(results.length, 0);
+      });
+
+      it('should show all options when showOptionsOnEmpty is enabled and the input is empty', function() {
+          var component = TestUtils.renderIntoDocument(<Typeahead
+            options={ BEATLES }
+            showOptionsOnEmpty={true}
+          />);
+
+          var results = simulateTextInput(component, '');
+          assert.equal(results.length, 4);
       });
     });
   });

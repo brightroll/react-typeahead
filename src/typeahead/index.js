@@ -28,7 +28,8 @@ var Typeahead = React.createClass({
     inputProps: React.PropTypes.object,
     onOptionSelected: React.PropTypes.func,
     onKeyDown: React.PropTypes.func,
-    filterOption: React.PropTypes.func
+    filterOption: React.PropTypes.func,
+    showOptionsOnEmpty: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
@@ -104,7 +105,7 @@ var Typeahead = React.createClass({
 
   _renderIncrementalSearchResults: function() {
     // Nothing has been entered into the textbox
-    if (!this.state.entryValue) {
+    if (!this.state.entryValue && !this.props.showOptionsOnEmpty) {
       return "";
     }
 
